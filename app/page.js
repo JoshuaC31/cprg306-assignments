@@ -12,6 +12,11 @@ export default function Home() {
           Week 2 Assignment
         </button>
       </Link>
+      <Link className="flex justify-center mt-4" href="/week-3">
+        <button className="border-2 border-amber-400 text-amber-400 font-mono py-2 px-6 rounded-lg hover:bg-amber-400 hover:text-white transition-all duration-200">
+          Week 3 Assignment
+        </button>
+      </Link>
     </main>
   );
 };
