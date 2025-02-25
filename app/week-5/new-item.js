@@ -74,7 +74,7 @@ export default function NewItem(){
                     <option value="other">Other</option>
                 </select>
                 <div>
-                <button type="submit" className="shadow-xl border-2 border-red-600  text-black font-mono py-2 px-6 m-3 rounded-lg hover:bg-red-600  hover:text-white transition-all duration-200" onClick={handleSubmit}>Submit</button>
+                <button type="submit" className="shadow-xl border-2 border-red-600  text-black font-mono py-2 px-6 m-3 rounded-lg hover:bg-red-600  hover:text-white transition-all duration-200">Submit</button>
                 </div>
             </form>
         </div>
