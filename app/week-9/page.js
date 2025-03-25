@@ -20,18 +20,20 @@ export default function Page()
     };
 
     return (
-        <div>
-            <main>
-                <h1>Hello! Please Log In</h1>
+        <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]">
+            <main className="relative z-10 flex h-full flex-col items-center justify-center px-4">
+                <div className="px-8 py-6 rounded-lg bg-white w-72 max-w-3xl text-center">
+                <h1 className="text-center font-bold text-3xl text-black">Hello!</h1>
                 {
-                    user?<div>Welcome, {user.displayName} ({user.email})
-                    <p>To see shopping List click <a href="week-9/shopping-list">here</a>!!</p>
-                    <button onClick={signOut} className="rounded-lg bg-blue-400 p-2">Sign Out</button>
+                    user?<div> <p className="text-center font-bold text-3xl text-black">Welcome,</p><p className="text-center font-bold text-1xl text-black">{user.displayName} ({user.email})</p>
+                    <p className="text-center font-bold text-1xl text-black">To see shopping List click </p> <p className="text-center font-bold text-1xl text-blue-500 "><a href="week-9/shopping-list">Here!!</a></p>
+                    <button onClick={signOut} className="bg-blue-600 hover:bg-blue-500 text-white font-semibold p-2 mt-3 rounded w-[100%]">Sign Out</button>
                     </div> : 
-                    <div>You are not logged in
-                        <button onClick={signIn} className="rounded-lg bg-blue-400 p-2">Log In</button>
+                    <div> <p className="mt-6 text-center font-bold text-1xl text-black">You are not logged in</p>
+                        <button onClick={signIn} className="bg-blue-600 hover:bg-blue-500 text-white font-semibold p-2 mt-3 rounded w-[100%]">Log In</button>
                     </div>
                 }
+                </div>
             </main>
         </div>
     )
