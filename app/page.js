@@ -47,6 +47,11 @@ export default function Home() {
           Week 9 Assignment
         </button>
       </Link>
+      <Link className="flex justify-center mt-4" href="/week-10">
+        <button className="shadow-xl border-2 border-red-600  text-black bg-white font-mono py-2 px-6 m-3 rounded-lg hover:bg-red-500  hover:text-white transition-all duration-200">
+          Week 10 Assignment
+        </button>
+      </Link>
     </main>
   );
 };
