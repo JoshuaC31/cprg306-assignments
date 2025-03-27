@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NewItem from "./new-item.js";
 import ItemList from "./item-list.js";
-import itemsData from "./item.json";
 import MealIdeas from "./meal-ideas.js";
 import { useUserAuth } from "../_utils/auth-context.js";
+import {getItems, addItem} from "../_services/shopping-list-services.js"
 
 export default function Page(){
 
@@ -19,11 +19,24 @@ export default function Page(){
         await firebaseSignOut();
     };
 
-    const [items, setItems] = useState(itemsData);
+    const [items, setItems] = useState([]);
     const [selectedItemName, setSelectedItemName] = useState('');
 
-    const handleAddItem = (newItem) => {
-        setItems([...items, newItem]);
+    async function showData() {
+        if(user) {
+            const fetchedItems = await getItems(user.uid);
+            setItems(fetchedItems)
+        };
+    };
+
+    useEffect(() => {
+        showData();
+    },[user]);
+
+    async function handleAddItem(newItem) {
+        const newItemID = await addItem(user.uid, newItem);
+        const newItems = [...items,{id:newItemID, ...newItem}]
+        setItems(newItems);
     }
 
     const handleItemSelect = (item) => {
